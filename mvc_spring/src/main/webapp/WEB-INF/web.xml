@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- 네임스페이스와 스키마 선언 -->
+	<!-- 네임스페이스 : 코드에서 이름은 같지만 내용이 전혀 다른 요소와 충돌하지 않도록 구별하는데 사용 -->
+	<!-- 스키마 : 코드의 구조와 요소, 속성의 관계를 정의하여 다양한 자료형을 사용할 수 있도록 정의된 문서구조, 즉 틀을 의미 -->
+	
+	
+	<!--루트 컨텍스트 설정 : 공통 빈(Service,Repository(DAO), DB, LOG 등 설정 view 지원을 제외한 bean-->
+	<!--사용자가 직접 제어하는 XML파일 지정 사용 가능  -->
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- Processes application requests -->
+	<!-- 서블릿 컨텍스트 설정 -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+</web-app>
