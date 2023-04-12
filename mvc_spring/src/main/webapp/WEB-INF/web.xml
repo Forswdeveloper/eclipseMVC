@@ -10,12 +10,14 @@
 	<!--루트 컨텍스트 설정 : 공통 빈(Service,Repository(DAO), DB, LOG 등 설정 view 지원을 제외한 bean-->
 	<!--사용자가 직접 제어하는 XML파일 지정 사용 가능  -->
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<!-- 스프링 MVC 설정 파일 등록  -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<!--  스프링 MVC 파일 정보 읽기 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
