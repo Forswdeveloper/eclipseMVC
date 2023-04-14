@@ -16,8 +16,7 @@ public class BookRepositoryImpl implements BookRepository {
 	public List<Book> getAllBookList() {
 		if(listOfBooks.size() > 0) {
 			System.err.println("ListOfBooks size is " + listOfBooks.size());
-			listOfBooks.clear();			
-			System.err.println("ListOfBooks size is " + listOfBooks.size());
+			listOfBooks.clear();
 		}
 		
 		Book book1 = new Book("ISBN1234","C#교과서",30000);
