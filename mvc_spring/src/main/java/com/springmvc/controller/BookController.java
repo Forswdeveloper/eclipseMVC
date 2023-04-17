@@ -5,22 +5,48 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvc.domain.Book;
 import com.springmvc.service.BookService;
 
 @Controller
+@RequestMapping("/books")
 public class BookController {
 	
 	@Autowired
 	private BookService bookService;
 	
-	@RequestMapping(value = "/books", method=RequestMethod.GET)
+	@GetMapping
 	public String requestBookList(Model model) {
 		List<Book> list = bookService.getAllBookList();
 		model.addAttribute("bookList",list);
 		return "books";
 	}
+	
+	//메소드형 RequestMapping GetMapping,PostMapping,PutMapping,DeleteMapping,PatchMapping
+	// RequestMapping(value="/all", method = "RequestMethod.GET") 과 같다.
+	@GetMapping("/all") 
+	public String requestAllBooks(Model model) {
+		List<Book> list = bookService.getAllBookList();
+		model.addAttribute("bookList",list);
+		return "books";
+	}
+	
+	@GetMapping("/allMAV")
+	public ModelAndView requestMavAllbooks() {
+		ModelAndView mav = new ModelAndView();
+		
+		List<Book> list = bookService.getAllBookList();
+		
+		mav.addObject("bookList",list);
+		
+		mav.setViewName("books");
+		return mav;
+	}
+	
+	
 }
