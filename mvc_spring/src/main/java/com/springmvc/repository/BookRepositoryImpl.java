@@ -2,6 +2,7 @@ package com.springmvc.repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +14,7 @@ public class BookRepositoryImpl implements BookRepository {
 	private List<Book> listOfBooks = new ArrayList<Book>();
 	
 	@Override
-	public List<Book> getAllBookList() {
+	public List<Book> getAllBookList() throws Exception{
 		if(listOfBooks.size() > 0) {
 			System.err.println("ListOfBooks size is " + listOfBooks.size());
 			listOfBooks.clear();
@@ -54,6 +55,25 @@ public class BookRepositoryImpl implements BookRepository {
 		listOfBooks.add(book3);
 		
 		return listOfBooks;
+	}
+	
+	@Override
+	public List<Book> getBookListByCategory(String category) throws Exception {
+		List<Book> booksByCategory = new ArrayList<Book>();
+		
+		int bookSize = listOfBooks.size();
+		
+		//book List가 존재하면
+		if(bookSize > 0) {
+			for(int i = 0 ; i < bookSize ; i++) {
+				Book book = listOfBooks.get(i);
+				if(category.equalsIgnoreCase(book.getCategory())) {
+					booksByCategory.add(book);
+				}
+			}
+		}
+		
+		return booksByCategory;
 	}
 	
 	
