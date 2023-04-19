@@ -1,6 +1,8 @@
 package com.springmvc.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,16 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public List<Book> getBookListByCategory(String category) throws Exception {
 		return bookRepository.getBookListByCategory(category);
+	}
+
+	@Override
+	public Set<Book> getBookListByFilter(Map<String, List<String>> filter) throws Exception {
+		return bookRepository.getBookListByFilter(filter);
+	}
+
+	@Override
+	public Book getBookById(String bookId) throws Exception {
+		return bookRepository.getBookById(bookId);
 	}
 
 }

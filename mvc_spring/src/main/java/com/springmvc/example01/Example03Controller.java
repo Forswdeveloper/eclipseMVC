@@ -51,6 +51,7 @@ public class Example03Controller {
 			@MatrixVariable MultiValueMap<String,String> matrixVars,
 			@MatrixVariable(pathVar="category") MultiValueMap<String,String> matrixVars2,Model model) {
 		
+		
 		System.out.println(matrixVars);
 		System.out.println(matrixVars2);
 		model.addAttribute("data", matrixVars + "<br>" + matrixVars2);
