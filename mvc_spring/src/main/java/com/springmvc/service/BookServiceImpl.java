@@ -36,4 +36,9 @@ public class BookServiceImpl implements BookService {
 		return bookRepository.getBookById(bookId);
 	}
 
+	@Override
+	public void setNewBook(Book book) throws Exception {
+		bookRepository.setNewBook(book);
+	}
+
 }

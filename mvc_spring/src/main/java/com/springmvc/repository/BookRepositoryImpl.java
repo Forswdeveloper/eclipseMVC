@@ -19,8 +19,11 @@ public class BookRepositoryImpl implements BookRepository {
 	@Override
 	public List<Book> getAllBookList() throws Exception{
 		if(listOfBooks.size() > 0) {
-			System.err.println("ListOfBooks size is " + listOfBooks.size());
-			listOfBooks.clear();
+			Set<Book> delDupBooks = new HashSet<Book>(listOfBooks);
+			System.err.println("After ListOfBooks size is " + listOfBooks.size());
+			List<Book> newListOfBooks = new ArrayList<Book>(delDupBooks);
+			listOfBooks = newListOfBooks;
+			System.err.println("Later ListOfBooks size is " + listOfBooks.size());
 		}
 		
 		Book book1 = new Book("ISBN1234","C#교과서",30000);
@@ -133,6 +136,11 @@ public class BookRepositoryImpl implements BookRepository {
 		}
 		
 		return bookInfo;
+	}
+
+	@Override
+	public void setNewBook(Book book) throws Exception {
+		listOfBooks.add(book);
 	}
 	
 	

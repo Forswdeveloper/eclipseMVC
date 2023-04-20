@@ -11,4 +11,5 @@ public interface BookService {
 	List<Book> getBookListByCategory(String category) throws Exception;
 	Set<Book> getBookListByFilter(Map<String, List<String>> filter) throws Exception;
 	Book getBookById(String bookId) throws Exception;
+	void setNewBook(Book book) throws Exception;
 }
