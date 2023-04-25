@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans>
+	<http use-expressions="true">
+		<intercept-url pattern="/admin/**" access="hasAuthority('ROLE_ADMIN)"/>
+		<intercept-url pattern="/manager/**" access="hasRole('ROLE_MANAGER)"/>
+		<intercept-url pattern="/member/**" access="isAuthenticated()"/>
+		<intercept-url pattern="/**" access="permitAll"/>
+	</http>
+	
+	<authentication-manager>
+		<authenticateion-provider>
+			<user-service>
+				<user name = "user1" pasword="111" authorities="ROLE_USER"/>
+				<user name = "user2" pasword="222" authorities="ROLE_USER"/>
+			</user-service>
+		</authenticateion-provider>
+	</authentication-manager>
+</beans:beans>
