@@ -57,4 +57,14 @@ public class Example03Controller {
 		model.addAttribute("data", matrixVars + "<br>" + matrixVars2);
 		return "webpage06";
 	}
+	
+	@GetMapping("/examAdmin")
+	public String requestMethod2(Model model) {
+		return "webpage08_03";
+	}
+	
+	@GetMapping("/admin/tag")
+	public String requestMethod3(Model model) {
+		return "webpage08_03";
+	}
 }
