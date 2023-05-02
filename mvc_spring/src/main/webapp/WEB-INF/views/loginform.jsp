@@ -14,7 +14,7 @@
 		<p>사용자명 <input type="text" name="username" placeholder="username"/>
 		<p>비밀번호 <input type="password" name="password" placeholder="password"/>
 		<p><button type="submit">로그인</button>
-		<input type="hidden" name="${_crsf.parameterName}" value="${_csrf.token}"/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	</form>
 </body>
 </html>

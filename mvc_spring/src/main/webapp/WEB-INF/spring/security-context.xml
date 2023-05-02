@@ -7,8 +7,8 @@
 			 					 http://www.springframework.org/schema/beans/spring-beans.xsd
     		 					 http://www.springframework.org/schema/security
     		 					 http://www.springframework.org/schema/security/spring-security.xsd">
-	<!-- <http use-expressions="true">
-		<intercept-url pattern="/admin" access="hasAuthority('ROLE_ADMIN')"/>
+	<http use-expressions="true">
+		<!-- <intercept-url pattern="/books/add" access="hasAuthority('ROLE_ADMIN')"/> -->
 		<form-login login-page="/login"
 					login-processing-url="/login"
 					default-target-url="/admin"
@@ -18,8 +18,8 @@
 		<csrf/>
 		<logout logout-url="/logout"
 				logout-success-url="/logout"/>
-	</http> -->
-	<http use-expressions="true">
+	</http>
+	<!-- <http use-expressions="true">
 		<intercept-url pattern="/admin/**" access="hasAuthority('ROLE_ADMIN')"/>
 		<intercept-url pattern="/manager/**" access="hasRole('ROLE_MANAGER')"/>
 		<intercept-url pattern="/member/**" access="isAuthenticated()"/>
@@ -27,14 +27,15 @@
 		<form-login/>
 		<csrf/>
 		<logout/>
-	</http>
+	</http> -->
 	
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name = "Admin" password="{noop}Admin1234" authorities="ROLE_ADMIN, ROLE_USER"/>
-				<user name = "manager" password="{noop}1235" authorities="ROLE_MANAGER"/>
-				<user name = "guest" password="{noop}1236" authorities="ROLE_USER"/>
+				<user name = "Admin" password="{noop}Admin1234" authorities="ROLE_ADMIN"/>
+				<!-- <user name = "Admin" password="{noop}Admin1234" authorities="ROLE_ADMIN, ROLE_USER"/> -->
+				<!-- <user name = "manager" password="{noop}1235" authorities="ROLE_MANAGER"/>
+				<user name = "guest" password="{noop}1236" authorities="ROLE_USER"/> -->
 				
 			</user-service>
 		</authentication-provider>
