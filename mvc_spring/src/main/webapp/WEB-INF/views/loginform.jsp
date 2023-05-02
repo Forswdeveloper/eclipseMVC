@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그</title>
+<title>로그인</title>
 </head>
 <body>
 	<h1>로그인</h1>

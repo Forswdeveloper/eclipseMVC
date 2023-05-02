@@ -25,11 +25,11 @@
 					</c:forEach>
 				</ul>
 			<p>이름 : <sec:authentication property="principal.username"/>
-			<p><a href="<c:url value='/exam03/examAdmin'/>">[웹 요청 URL /exam03로 이동하기]</a>
+			<p><a href="<c:url value='/exam03'/>">[웹 요청 URL /exam03로 이동하기]</a>
 		</c:when>
 		<c:otherwise>
 			<p>로그인 중이 아닙니다.
-			<p><p><a href="<c:url value='/exam03/admin/tag'/>">[웹 요청 URL /admin/tag로 이동하기]</a>
+			<p><p><a href="<c:url value='/admin/tag'/>">[웹 요청 URL /admin/tag로 이동하기]</a>
 		</c:otherwise>
 	</c:choose>
 </body>

@@ -9,11 +9,18 @@
 <title>Security</title>
 </head>
 <body>
-	<h2>스프링 시큐리티 </h2>
-	<sec:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin">
-		<p><h3>관리자 권한 화면입니다.</h3>
+	<h2>스프링 시큐리티 예</h2>
+	<sec:authorize access="isAuthenticated()">
+		<h5><sec:authentication property="principal.username"/>님, 반갑습니다.</h5>
+		<form action="./logout" method="POST">
+		<button type="submit">LOGOUT</button>
+			<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}"/>
+		</form>
+		<sec:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin">
+			<p><h3>관리자 권한 화면입니다.</h3>
+		</sec:authorize>
 	</sec:authorize>
-	<c:choose>
+	<%-- <c:choose>
 		<c:when test="${isAdmin}">
 			<p>로그인 중입니다
 			<p>비밀번호 : <sec:authentication property="principal.password"/>
@@ -31,6 +38,6 @@
 			<p>로그인 중이 아닙니다.
 			<p><p><a href="<c:url value='/exam03/admin/tag'/>">[웹 요청 URL /admin/tag로 이동하기]</a>
 		</c:otherwise>
-	</c:choose>
+	</c:choose> --%>
 </body>
 </html>

@@ -2,10 +2,11 @@ package com.springmvc.example01;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/home")
+//@RequestMapping("/home")
 public class Example04Controller {
 	
 	@GetMapping("/exam04")
@@ -21,7 +22,7 @@ public class Example04Controller {
 	
 	@GetMapping("/admin")
 	public String requestMethodAdmin() {
-		return "webpage08-04";
+		return "webpage08_04";
 	}
 	
 	@GetMapping("logout")

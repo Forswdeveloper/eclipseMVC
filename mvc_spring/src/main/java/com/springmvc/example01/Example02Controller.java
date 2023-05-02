@@ -12,7 +12,7 @@ public class Example02Controller {
 		return "webpage08_02";
 	}
 	
-	@GetMapping("/admin/tag")
+	@GetMapping("/manager/tag")
 	public String requestMethod2(Model model) {
 		return "webpage08_02";
 	}
