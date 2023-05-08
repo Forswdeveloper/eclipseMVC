@@ -29,7 +29,7 @@
 		<c:if test="${not empty error}">
 			<div class="alert alert-danger">
 				UserName과 Password가 올바르지 않습니다.<br />
-			</div>
+			</div> 
 		</c:if>
 		<form class="form-signin" action="<c:url value="/login"/>" method="post">
 			<div class="form-group row">
