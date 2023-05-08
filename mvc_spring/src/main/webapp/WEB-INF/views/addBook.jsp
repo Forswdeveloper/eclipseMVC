@@ -27,6 +27,12 @@
 	</div>
 	
 	<div class = "container">
+		<div class="float-right">
+		<!-- pageContext.request.contextPath는 웹에서 상대적인 경로를 나타낸다. -->
+			<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+				<input type="submit" class="btn btn-sm btn-success" value="Logout"/>
+			</form:form>
+		</div>
 		<form:form modelAttribute="NewBook" class = "form-horizontal">
 			<fieldset>
 			<legend>${addTitle}</legend>

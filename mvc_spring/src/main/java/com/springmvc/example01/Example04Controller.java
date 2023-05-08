@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-//@RequestMapping("/home")
+@RequestMapping("/exam04")
 public class Example04Controller {
 	
-	@GetMapping("/exam04")
+	@GetMapping("/home")
 	public void requestMethod() {
 		System.out.println(" @RequestMapping 예제입니다.");
 		System.out.println(" 웹 요청 URL은 /home/exam04 입니다.");

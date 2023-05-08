@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-//@RequestMapping("/exam03")
+@RequestMapping("/exam03")
 public class Example03Controller {
 	
 //	//@RequsetMapping 메서드형
@@ -58,10 +58,10 @@ public class Example03Controller {
 //		return "webpage06";
 //	}
 	
-	@GetMapping("/exam03")
-	public String requestMethod2(Model model) {
-		return "webpage08_03";
-	}
+//	@GetMapping("/exam03")
+//	public String requestMethod2(Model model) {
+//		return "webpage08_03";
+//	}
 	
 	@GetMapping("/admin/tag")
 	public String requestMethod3(Model model) {
