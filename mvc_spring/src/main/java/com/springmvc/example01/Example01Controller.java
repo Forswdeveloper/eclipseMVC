@@ -1,15 +1,45 @@
 package com.springmvc.example01;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
+@RequestMapping("/exam01")
 public class Example01Controller {
 	
-	@GetMapping("/exam01")
-	public String requestMethod(Model model) {
-		return "webpage08_01";
+//	@GetMapping("/exam01")
+//	public String requestMethod(Model model) {
+//		return "webpage08_01";
+//	}
+	
+	@GetMapping("/form")
+	public String requestForm() {
+		return "webpage09_01";
+	}
+	
+	@PostMapping("/form")
+	public String submitForm(@RequestParam("name") String name,
+							 @RequestParam("fileImage") MultipartFile file) {
+		String filename = file.getOriginalFilename();
+		System.err.println("파일 생성 시작");
+		File f = new File("\\Users\\jeongdong-in\\Documents\\uploadFile\\"+name+"_"+filename);
+		System.err.println("파일 생성 끝");
+		try {
+			file.transferTo(f);
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		return "webpage09_submit";
+		
 	}
 	
 	@GetMapping("/admin/main")
