@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 @RequestMapping("/exam01")
@@ -26,9 +27,11 @@ public class Example01Controller {
 	}
 	
 	@PostMapping("/form")
-	public String submitForm(@RequestParam("name") String name,
-							 @RequestParam("fileImage") MultipartFile file) {
-		String filename = file.getOriginalFilename();
+	public String submitForm(MultipartHttpServletRequest request) {
+		String name = request.getParameter("name");
+		MultipartFile file = request.getFile("fileImage");
+		String filename =file.getOriginalFilename();
+		
 		System.err.println("파일 생성 시작");
 		File f = new File("\\Users\\jeongdong-in\\Documents\\uploadFile\\"+name+"_"+filename);
 		System.err.println("파일 생성 끝");

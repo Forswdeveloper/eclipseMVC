@@ -34,7 +34,6 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
-		<!-- Multipart (fileupload)  -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
