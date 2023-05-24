@@ -20,7 +20,7 @@
 		</c:when>
 		<c:otherwise>
 			<p>로그인 중이 아닙니다.
-			<p><p><a href="<c:url value='/manager/tag'/>">[웹 요청 URL /manager/tag로 이동하기]</a>
+			<p><a href="<c:url value='/manager/tag'/>">[웹 요청 URL /manager/tag로 이동하기]</a>
 		</c:otherwise>
 	</c:choose>
 </body>
