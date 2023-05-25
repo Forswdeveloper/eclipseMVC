@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvc.domain.Book;
@@ -92,6 +94,19 @@ public class BookController {
 	
 	@RequestMapping(value = "/add", method=RequestMethod.POST)
 	public String submitAddNewBook(@ModelAttribute("NewBook") Book book) throws Exception {
+		MultipartFile bookImage = book.getBookImage();
+		
+		
+		if(bookImage != null && !bookImage.isEmpty()) {
+			try {
+				String saveName = bookImage.getOriginalFilename();
+				File saveFile = new File("\\Users\\jeongdong-in\\Documents\\uploadFile\\",saveName);
+				//bookImage.transferTo(saveFile);
+			} catch(Exception e){
+				throw new RuntimeException("도서 이미지 업로드가 실패하였습니다.");
+			}
+		}
+		
 		bookService.setNewBook(book);
 		//redirect는 시스템적으로 변화가 일어날 때 사용하는 뷰 리다이렉션
 		//forward는 시스템적으로 변화가 일어나지 않는 단순 조회 요청을 할 때 사용
@@ -106,6 +121,6 @@ public class BookController {
 	@InitBinder
 	public void initBiner(WebDataBinder binder) {
 		binder.setAllowedFields("bookId", "name","unitPrice","author","description","publisher","category"
-				,"unitInStock","totalPages","releaseDate","condition");
+				,"unitInStock","totalPages","releaseDate","condition","bookImage");
 	}
 }
